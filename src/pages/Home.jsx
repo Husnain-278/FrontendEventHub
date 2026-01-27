@@ -15,7 +15,7 @@ const Home = () => {
     const fetchStats = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://127.0.0.1:8000/api/v1/event-stats/');
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/event-stats/`);
         const data = await response.json();
         setStats(data);
       } catch (error) {

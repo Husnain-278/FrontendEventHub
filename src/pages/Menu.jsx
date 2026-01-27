@@ -15,12 +15,12 @@ const Menu = () => {
         setLoading(true);
         
         // Fetch menu categories
-        const categoriesResponse = await fetch('http://localhost:8000/api/v1/menu-categories/');
+        const categoriesResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/menu-categories/`);
         if (!categoriesResponse.ok) throw new Error('Failed to fetch categories');
         const categoriesData = await categoriesResponse.json();
         
         // Fetch menu items
-        const itemsResponse = await fetch('http://localhost:8000/api/v1/menu-items/');
+        const itemsResponse = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/menu-items/`);
         if (!itemsResponse.ok) throw new Error('Failed to fetch menu items');
         const itemsData = await itemsResponse.json();
         

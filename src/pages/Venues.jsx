@@ -9,7 +9,7 @@ const Venues = () => {
     const getVenues=async()=>{
        try {
          setLoading(true);
-         const response = await fetch('http://127.0.0.1:8000/api/v1/venues/')
+         const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/venues/`)
          const data = await response.json()
          setVenues(data)
        } catch (error) {

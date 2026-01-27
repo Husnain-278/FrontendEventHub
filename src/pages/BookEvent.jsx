@@ -26,15 +26,15 @@ const BookEvent = () => {
       try {
         setLoading(true);
         //Load Event types
-        const response = await fetch('http://127.0.0.1:8000/api/v1/event-types/')
+        const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/event-types/`)
         const data = await response.json()
         setEvents(data)
         //Load Venues
-        const venue = await fetch('http://127.0.0.1:8000/api/v1/venues/')
+        const venue = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/venues/`)
         const venues_data = await venue.json()
         setVenues(venues_data)
         //Load Menu Items
-        const menuItem = await  fetch('http://127.0.0.1:8000/api/v1/menu-items/')
+        const menuItem = await  fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/menu-items/`)
         const menuItemsData = await menuItem.json()
         setMenuItems(menuItemsData)
       } catch (error) {
@@ -115,7 +115,7 @@ const BookEvent = () => {
         menu_items: formData.selectedMenuItems
       };
 
-      const response = await fetch('http://127.0.0.1:8000/api/v1/booking/', {
+      const response = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/v1/booking/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
